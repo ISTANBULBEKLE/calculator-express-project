@@ -9,6 +9,15 @@ app.get ('/', function (req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/htmlDownload', (req,res)=>{
+    res.download(__dirname + '/bmiCalculator.html')
+})
+
+app.get("/search", function(request, response) {
+  let word = request.query.word;  
+  response.send(`You said you want to search for: ${word}`);
+});
+
 app.post('/', function (req, res){
     var num1 = Number(req.body.num1);
     var num2 = Number(req.body.num2);
